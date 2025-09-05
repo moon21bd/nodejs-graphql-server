@@ -1,4 +1,4 @@
-# 📚 GraphQL Server Example
+# 📚 Node.JS GraphQL Server Example
 
 A simple **GraphQL server** built with **Node.js and Express** for learning purposes.  
 Inspired by [W3Schools GraphQL Tutorial](https://www.w3schools.com/nodejs/nodejs_graphql.asp).
