@@ -1,0 +1,195 @@
+{
+	"info": {
+		"_postman_id": "54313ab3-49ca-468a-aa06-ae3f03c7c58d",
+		"name": "NodeJS GraphQL Server API",
+		"description": "Postman collection for testing GraphQL server (queries and mutations).",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "449341"
+	},
+	"item": [
+		{
+			"name": "Get All Books",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"query\": \"{ books { id title author year genre } }\"\n}"
+				},
+				"url": {
+					"raw": "{{endpoint}}/graphql",
+					"host": [
+						"{{endpoint}}"
+					],
+					"path": [
+						"graphql"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Book By ID",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{ \"query\": \"{ book(id: \\\"2\\\") { id title author year genre } }\" }"
+				},
+				"url": {
+					"raw": "{{endpoint}}/graphql",
+					"host": [
+						"{{endpoint}}"
+					],
+					"path": [
+						"graphql"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Search Books",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{ \"query\": \"{ searchBooks(query: \\\"b\\\") { id title author } }\" }"
+				},
+				"url": {
+					"raw": "{{endpoint}}/graphql",
+					"host": [
+						"{{endpoint}}"
+					],
+					"path": [
+						"graphql"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Add Book",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{ \"query\": \"mutation { addBook(input: { title: \\\"1984\\\", author: \\\"George Orwell\\\", year: 1949, genre: \\\"Dystopian\\\" }) { id title author } }\" }"
+				},
+				"url": {
+					"raw": "{{endpoint}}/graphql",
+					"host": [
+						"{{endpoint}}"
+					],
+					"path": [
+						"graphql"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update Book",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{ \"query\": \"mutation { updateBook(id: \\\"1\\\", input: { year: 1934 }) { id title year } }\" }"
+				},
+				"url": {
+					"raw": "{{endpoint}}/graphql",
+					"host": [
+						"{{endpoint}}"
+					],
+					"path": [
+						"graphql"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete Book",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"query\": \"mutation { deleteBook(id: \\\"3\\\") }\"\n}"
+				},
+				"url": {
+					"raw": "{{endpoint}}/graphql",
+					"host": [
+						"{{endpoint}}"
+					],
+					"path": [
+						"graphql"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "endpoint",
+			"value": "http://localhost:4000"
+		}
+	]
+}
